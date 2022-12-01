@@ -8,6 +8,7 @@ import (
 )
 
 var day int
+var part string
 
 var rootCmd = &cobra.Command{
 	Use:   "aoc",
@@ -19,7 +20,13 @@ var runCmd = &cobra.Command{
 	Short: "Run a puzzle",
 	Run: func(cmd *cobra.Command, args []string) {
 		if day > 0 {
-			runDay(day)
+			if len(part) > 0 {
+				runDay(day, part)
+			} else {
+				runDay(day, "a")
+				runDay(day, "b")
+			}
+
 			return
 		}
 	},
@@ -27,6 +34,7 @@ var runCmd = &cobra.Command{
 
 func Execute() {
 	rootCmd.PersistentFlags().IntVarP(&day, "day", "d", 0, "day input")
+	rootCmd.PersistentFlags().StringVarP(&part, "part", "p", "", "part input")
 	rootCmd.AddCommand(runCmd)
 
 	if err := rootCmd.Execute(); err != nil {
@@ -34,8 +42,8 @@ func Execute() {
 	}
 }
 
-func runDay(day int) {
-	aoc.Run(day, aoc.NewPuzzle(day), aoc.Input(day))
+func runDay(day int, part string) {
+	aoc.Run(day, part, aoc.NewPuzzle(day), aoc.Input(day))
 }
 
 func main() {

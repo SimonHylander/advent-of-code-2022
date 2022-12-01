@@ -48,7 +48,15 @@ func NewPuzzle(day int) Puzzle {
 	return puzzle
 }
 
-func Run(day int, p Puzzle, input []string) {
-	fmt.Println(fmt.Sprintf("Day %d, Part A: %v", day, p.PartA(input)))
-	fmt.Println(fmt.Sprintf("Day %d, Part B: %v", day, p.PartB(input)))
+func Run(day int, part string, p Puzzle, input []string) {
+
+	if part == "a" {
+		fmt.Println(fmt.Sprintf("Day %d, Part A: %v", day, p.PartA(input)))
+		return
+	}
+
+	if part == "b" {
+		fmt.Println(fmt.Sprintf("Day %d, Part B: %v", day, p.PartB(input)))
+		return
+	}
 }
