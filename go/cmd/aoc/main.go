@@ -1,7 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"os"
+	"time"
 
 	"github.com/simonhylander/advent-of-code-2022/pkg/aoc"
 	"github.com/spf13/cobra"
@@ -47,5 +49,9 @@ func runDay(day int, part string) {
 }
 
 func main() {
+	start := time.Now()
 	Execute()
+	duration := time.Since(start)
+	var ms float64 = (float64(duration.Microseconds())) / float64(time.Millisecond)
+	fmt.Println("ms:", ms)
 }
