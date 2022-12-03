@@ -21,10 +21,9 @@ async function createFile(day: number, part: string) {
   await Deno.writeFile(
     `./${dir}/day${day}_${part}.ts`,
     encoder.encode(
-      `
-export {};
+      `export {};
 
-const input = await Deno.readTextFile("./day${day}.txt").then(input => input.split("\\n"));
+const input = await Deno.readTextFile(new URL("./day${day}.txt", import.meta.url)).then(input => input.split("\\n"));
 
 const expected = 0;
 let result = 0;

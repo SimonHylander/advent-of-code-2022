@@ -1,4 +1,4 @@
-# Advent of Code 2022 - Deno
+# Advent of Code 2022 - [Deno](https://deno.land/)
 
 ## Setup new day
 
