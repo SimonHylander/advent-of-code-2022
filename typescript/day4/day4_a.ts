@@ -1,14 +1,31 @@
-
 export {};
 
-const input = await Deno.readTextFile("./day4.txt").then(input => input.split("\n"));
+const input = await Deno.readTextFile(
+  new URL("./day4.txt", import.meta.url),
+)
+  .then((input) => input.split("\n"));
 
-const expected = 0;
-let result = 0;
+const expected = 534;
 
-input.forEach((line) => {
+const result = input.reduce((total, line) => {
+  const [firstSection, secondSection] = line.split(",");
+  const [firstStart, firstEnd] = firstSection.split("-").map((n) => +n);
+  const [secondStart, secondEnd] = secondSection.split("-").map((n) => +n);
 
-});
+  if (
+    firstStart >= secondStart &&
+    firstEnd <= secondEnd
+  ) {
+    total++;
+  } else if (
+    secondStart >= firstStart &&
+    secondEnd <= firstEnd
+  ) {
+    total++;
+  }
+
+  return total;
+}, 0);
 
 console.log("result:", result);
 console.assert(expected === result);
