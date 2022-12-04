@@ -6,8 +6,14 @@ import (
 	"strings"
 )
 
-func Input(day int) []string {
-	fileName := fmt.Sprintf("./pkg/days/input/day%d.txt", day)
+func Input(day int, test bool) []string {
+	var fileName string
+	if test {
+		fileName = fmt.Sprintf("./pkg/days/input/day%d_test.txt", day)
+	} else {
+		fileName = fmt.Sprintf("./pkg/days/input/day%d.txt", day)
+	}
+
 	return readFile(fileName)
 }
 

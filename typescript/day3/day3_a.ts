@@ -1,16 +1,15 @@
 export {};
 
-const input = await Deno.readTextFile(
-  new URL("./day3.txt", import.meta.url),
-)
-  .then((input) => input.split("\n"));
+const input = await Deno.readTextFile(new URL("./day4.txt", import.meta.url));
+// const input = await Deno.readTextFile(new URL("./day4_test.txt", import.meta.url));
+const lines = input.split("\n");
 
 const expected = 8401;
 let result = 0;
 
 const alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-input.forEach((line) => {
+lines.forEach((line) => {
   const firstCompartment = line.slice(0, line.length / 2);
   const secondCompartment = line.slice(line.length / 2);
 
