@@ -7,19 +7,19 @@ import (
 )
 
 type Puzzle interface {
-	PartA([]string) any
-	PartB([]string) any
+	PartA(input string) any
+	PartB(input string) any
 }
 
 var puzzles = map[int]Puzzle{
-	1: days.Day1{},
-	2: days.Day2{},
-	3: days.Day3{},
-	4: days.Day4{},
-	5: days.Day5{},
+	// 1: days.Day1{},
+	// 2: days.Day2{},
+	// 3: days.Day3{},
+	// 4: days.Day4{},
+	// 5: days.Day5{},
 	// 6:  days.Day6{},
 	// 7:  days.Day7{},
-	// 8:  days.Day8{},
+	8: days.Day8{},
 	// 9:  days.Day9{},
 	// 10: days.Day10{},
 	// 11: days.Day11{},
@@ -48,7 +48,7 @@ func NewPuzzle(day int) Puzzle {
 	return puzzle
 }
 
-func Run(day int, part string, p Puzzle, input []string) {
+func Run(day int, part string, p Puzzle, input string) {
 
 	if part == "a" {
 		fmt.Println(fmt.Sprintf("Day %d, Part A: %v", day, p.PartA(input)))

@@ -23,15 +23,17 @@ async function createFile(day: number, part: string) {
     encoder.encode(
       `export {};
 
-const input = await Deno.readTextFile(new URL("./day${day}.txt", import.meta.url));
-// const input = await Deno.readTextFile(new URL("./day${day}_test.txt", import.meta.url));
+// const filename = "./day${day}.txt";
+const filename = "./day${day}_test.txt";
+
+const input = await Deno.readTextFile(new URL(filename, import.meta.url));
 
 const lines = input.split("\\n");
 
 const expected = 0;
 let result = 0;
 
-input.forEach((line) => {
+lines.forEach((line) => {
 
 });
 

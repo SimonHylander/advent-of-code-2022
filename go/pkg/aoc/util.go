@@ -3,10 +3,9 @@ package aoc
 import (
 	"fmt"
 	"io/ioutil"
-	"strings"
 )
 
-func Input(day int, test bool) []string {
+func Input(day int, test bool) string {
 	var fileName string
 	if test {
 		fileName = fmt.Sprintf("./pkg/days/input/day%d_test.txt", day)
@@ -17,12 +16,11 @@ func Input(day int, test bool) []string {
 	return readFile(fileName)
 }
 
-func readFile(fileName string) []string {
+func readFile(fileName string) string {
 	b, err := ioutil.ReadFile(fileName)
 	if err != nil {
 		panic(err)
 	}
 
-	lines := strings.Split(string(b), "\n")
-	return lines
+	return string(b)
 }
